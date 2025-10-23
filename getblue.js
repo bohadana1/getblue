@@ -1,8 +1,8 @@
-window.__tcfapi && window.__tcfapi("addEventListener", 2, (async (e, t) => {
+window.__tcfapi && window.__tcfapi("addEventListener", 2, async (e, t) => {
   if (!t || !e) return;
   const { tcString: n } = e;
   setLocalStorage("tcString", n);
-}));
+});
 
 window.blue = {};
 window.blue.isMobileDetected = function () {
@@ -173,14 +173,14 @@ executeRequests = function (e, t) {
 
 blue_obj = function () {};
 blue_obj.prototype.getSrc = function () {
-  return ("https:" == document.location.protocol ? "https://" : "http://") + "event.getblue.io/p/";
+  return ("https:" == document.location.protocol ? "https://" : "http://") + "event.getblue.io/";
 };
 blue_obj.prototype.getSrcPixel = function () {
-  return ("https:" == document.location.protocol ? "https://" : "http://") + "event.getblue.io/p/";
+  return ("https:" == document.location.protocol ? "https://" : "http://") + "event.getblue.io/";
 };
 blue_obj.prototype.mountSource = function (e, t) {
   var o = blue_obj[instId].getAttributes(), n = 1e13 * (Math.random() + "");
-  return o.source + "?cId=" + e +
+  return o.source + "event/?cId=" + e +
     "&tName=" + t +
     "&pId=" + o.blueProductId +
     "&revenue=" + o.transactionTotal +
@@ -209,7 +209,7 @@ blue_obj.prototype.getSslWidget = function (e, t) {
 };
 blue_obj.prototype.mountSourcePixel = function (e, t) {
   var o = blue_obj[instId].getAttributes(), n = 1e13 * (Math.random() + "");
-  return o.sourcePixel + "?cId=" + e +
+  return o.sourcePixel + "event/?cId=" + e +
     "&tName=" + t +
     "&pId=" + o.blueProductId +
     "&revenue=" + o.transactionTotal +
